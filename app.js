@@ -4,13 +4,39 @@ import age from './AgeVerify.js'
 import simple from './SimpleIntrest.js'
 import files from "./file.js"
 import paths from "./path.js"
-console.log(paths.baseName)
+import decrypt from './crypto.js'
+
+
+
+
+
+
+
+console.log(decrypt.random)
+console.log(decrypt.hashing)
+console.log(decrypt.passwordHashing('hello'))
+console.log(decrypt.verifyPassword)
+'hell',
+'e351ac3de9f79a05040d19ab8863d3db',
+'c3b92e4a2fde5ea95f4e7db19db4fb3e8be7cd4882a4c16da68e123fc612dd05'
+
+console.log(decrypt.encryption("fucking world"))
+
+
+
+
+
+
+
+
+
+/*console.log(paths.baseName)
 console.log(paths.extension)
 console.log(paths.joinPath)
 console.log(paths.absolutePath)
 console.log(paths.detail)
 console.log(paths.formats)
-console.log(paths.correction)
+console.log(paths.correction)*/
 
 
 /*console.log(subtract(8,6))
