@@ -19,21 +19,37 @@ decrypt.verifyPassword = (password,salt,hash)=>{
     return hash === hashVerify
 }
 
-decrypt.encryption =  (text,key)=>{
-    const iv = crypto.randomBytes(16);
-    const key = crypto.randomBytes(32)
-    const cipher = crypto.createCipheriv(
+ const iv = crypto.randomBytes(16);
+ const key = crypto.randomBytes(32)
+
+decrypt.encryption =  (text)=>{
+   
+    const cipher = crypto.createCipheriv( //cipher ley alg ,key and iv linxa
         'aes-256-cbc',
         key,
         iv
     );
     let encrypted = cipher.update(text,'utf8','hex');
-    encrypted+= cipher.final('hex');
+    encrypted+= cipher.final('hex');//hex bhaneko hamle nabujni code , utf-8 bhaneko hamle bujni language
 
     return {
         iv : iv.toString('hex'),
-        encrypted : encrypted
+        key ,
+        encryptedData : encrypted
+
     };
+}
+
+decrypt.decrypts = (encrypted)=>{
+    const decipher = crypto.createDecipheriv(
+        'aes-256-cbc',
+        key,
+        iv,
+    );
+
+    let decrypted = decipher.update(encrypted,'hex','utf-8');
+    decrypted += decipher.final('utf8');
+    return decrypted;
 }
 
 export default decrypt

@@ -20,7 +20,10 @@ console.log(decrypt.verifyPassword)
 'e351ac3de9f79a05040d19ab8863d3db',
 'c3b92e4a2fde5ea95f4e7db19db4fb3e8be7cd4882a4c16da68e123fc612dd05'
 
-console.log(decrypt.encryption("fucking world"))
+
+const encrypted = decrypt.encryption("fucking world")
+console.log(encrypted)
+console.log(decrypt.decrypts(encrypted.encryptedData))
 
 
 
